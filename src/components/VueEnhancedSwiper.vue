@@ -33,17 +33,7 @@ import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Swiper } from 'swiper'
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
-
-// 简化的配置接口
-interface ScrollConflictConfig {
-  enabled: boolean
-  tolerance?: number
-  debug?: boolean
-  swipeDistance?: {
-    withScroll?: number    // 有滚动元素时的滑动距离阈值，默认50px
-    withoutScroll?: number // 无滚动元素时的滑动距离阈值，默认30px
-  }
-}
+import type { ScrollConflictConfig } from '@/types'
 
 // 组件 Props
 interface Props {

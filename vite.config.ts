@@ -19,73 +19,20 @@ export default defineConfig({
   
   build: {
     lib: {
-      entry: {
-        // 多入口构建
-        index: resolve(__dirname, 'src/index.ts'),
-        components: resolve(__dirname, 'src/components/index.ts'),
-        composables: resolve(__dirname, 'src/composables/index.ts')
-      },
-      formats: ['es', 'cjs', 'umd'],
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'VueEnhancedSwiper',
-      fileName: (format, entryName) => {
-        const formatMap = {
-          es: 'mjs',
-          cjs: 'cjs',
-          umd: 'umd.js'
-        }
-        return `${entryName}.${formatMap[format as keyof typeof formatMap]}`
-      }
+      fileName: (format) => `vue-enhanced-swiper.${format}.js`
     },
     
     rollupOptions: {
       // 外部依赖处理
-      external: [
-        'vue',
-        'swiper',
-        'swiper/vue',
-        'swiper/modules'
-      ],
-      
-      output: [
-        // ES Module 格式
-        {
-          format: 'es',
-          dir: 'dist/esm',
-          preserveModules: true,
-          preserveModulesRoot: 'src',
-          entryFileNames: '[name].mjs',
-          globals: {
-            vue: 'Vue',
-            swiper: 'Swiper',
-            'swiper/vue': 'SwiperVue'
-          }
-        },
-        
-        // CommonJS 格式
-        {
-          format: 'cjs',
-          dir: 'dist/cjs',
-          entryFileNames: '[name].cjs',
-          globals: {
-            vue: 'Vue',
-            swiper: 'Swiper',
-            'swiper/vue': 'SwiperVue'
-          }
-        },
-        
-        // UMD 格式
-        {
-          format: 'umd',
-          name: 'VueEnhancedSwiper',
-          dir: 'dist/umd',
-          entryFileNames: '[name].umd.js',
-          globals: {
-            vue: 'Vue',
-            swiper: 'Swiper',
-            'swiper/vue': 'SwiperVue'
-          }
+      external: ['vue', 'swiper', 'swiper/modules'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          swiper: 'Swiper'
         }
-      ]
+      }
     },
     
     // 代码分割配置
