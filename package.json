@@ -26,8 +26,7 @@
         "default": "./dist/cjs/vue-enhanced-swiper.cjs"
       }
     },
-    "./style.css": "./dist/style.css",
-    "./core.css": "./dist/core.css"
+    "./style.css": "./dist/index.css"
   },
   "files": [
     "dist",

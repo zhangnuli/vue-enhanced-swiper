@@ -36,7 +36,8 @@ pnpm add vue-enhanced-swiper swiper
     :direction="'vertical'"
     :scroll-conflict="{
       enabled: true,
-      mode: 'smart'
+      tolerance: 5,
+      debug: false
     }"
     @slide-change="onSlideChange"
   >
