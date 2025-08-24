@@ -341,7 +341,7 @@ function setupTouchHandling() {
         }
       }
       
-      handleTouchEnd(event)
+      handleTouchEnd()
       return
     }
     
@@ -376,7 +376,7 @@ function setupTouchHandling() {
       emit('scrollConflict', debugInfo.value)
     }
     
-    handleTouchEnd(event)
+    handleTouchEnd()
     currentScrollableElement = null
   }, { passive: true })
 }
