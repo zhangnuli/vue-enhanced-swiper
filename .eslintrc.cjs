@@ -9,6 +9,11 @@ module.exports = {
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting'
   ],
+  ignorePatterns: [
+    'dist/**/*',
+    'node_modules/**/*',
+    '*.d.ts'
+  ],
   parserOptions: {
     ecmaVersion: 'latest'
   },
@@ -23,22 +28,29 @@ module.exports = {
     'vue/no-unused-vars': 'error',
     'vue/no-mutating-props': 'error',
     
-    // TypeScript 相关规则
-    '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/prefer-const': 'error',
-    
     // 通用规则
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'prefer-const': 'error',
-    'no-var': 'error'
+    'no-var': 'error',
+    'no-unused-vars': 'off' // 由 TypeScript 处理
   },
   overrides: [
     {
       files: ['tests/**/*', '**/*.test.ts', '**/*.spec.ts'],
       env: {
-        vitest: true
+        node: true
+      },
+      globals: {
+        vi: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+        test: 'readonly'
       }
     }
   ]

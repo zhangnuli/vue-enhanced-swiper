@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Swiper } from 'swiper'
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
@@ -200,7 +200,7 @@ function handleTouchMove(event: TouchEvent): boolean {
   return shouldAllowSwiper
 }
 
-function handleTouchEnd(event: TouchEvent): void {
+function handleTouchEnd(): void {
   isHandlingTouch = false
 }
 
