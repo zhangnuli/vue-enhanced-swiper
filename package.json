@@ -1,6 +1,6 @@
 {
   "name": "vue-enhanced-swiper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enhanced mobile swiper component for Vue 3 with scroll conflict resolution",
   "keywords": [
     "vue",
