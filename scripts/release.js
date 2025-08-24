@@ -82,7 +82,7 @@ function updateChangelog(version) {
 
 function runTests() {
   log('🧪 运行测试...', 'blue')
-  exec('npm run test')
+  exec('npx vitest run')
   log('✅ 所有测试通过', 'green')
 }
 
